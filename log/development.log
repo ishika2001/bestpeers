@@ -17222,3 +17222,95 @@ Completed 200 OK in 68ms (Views: 66.7ms | ActiveRecord: 0.1ms | Allocations: 929
 
 
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (622.1ms)[0m  [1m[35mCREATE DATABASE "event_1" ENCODING = 'unicode'[0m
+  [1m[35m (747.5ms)[0m  [1m[35mCREATE DATABASE "event_test_1" ENCODING = 'unicode'[0m
+  [1m[35m (100.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (80.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1540578793994923200)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20231020103435)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (64.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "name" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (32.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (23.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231020103435"]]
+  [1m[36mTRANSACTION (18.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-10-23 13:27:17.981340"], ["updated_at", "2023-10-23 13:27:17.981340"]]
+  [1m[36mTRANSACTION (35.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1540578793994923200)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-10-23 18:59:29 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/views/home/_navbar.html.erb:15
+  Rendered home/_navbar.html.erb (Duration: 43.1ms | Allocations: 6491)
+  Rendered home/index.html.erb within layouts/application (Duration: 193.1ms | Allocations: 55174)
+  Rendered layout layouts/application.html.erb (Duration: 197.8ms | Allocations: 57804)
+Completed 200 OK in 223ms (Views: 202.8ms | ActiveRecord: 9.0ms | Allocations: 64457)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-10-23 18:59:31 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 257)
+  Rendered devise/shared/_links.html.erb (Duration: 1.9ms | Allocations: 731)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 15.1ms | Allocations: 5640)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 8938)
+Completed 200 OK in 44ms (Views: 23.3ms | ActiveRecord: 0.0ms | Allocations: 27749)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-10-23 18:59:49 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"role"=>"attender", "email"=>"er@gmail.com", "name"=>"er", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :role. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000055b6317be368>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"role"=>"attender", "email"=>"er@gmail.com", "name"=>"er", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "er@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "name", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "er@gmail.com"], ["name", "er"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-10-23 13:29:50.140750"], ["updated_at", "2023-10-23 13:29:50.140750"]]
+  [1m[36mTRANSACTION (24.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/attender_dashboard
+Completed 303 See Other in 303ms (ActiveRecord: 26.5ms | Allocations: 9374)
+
+
+Started GET "/attender_dashboard" for 127.0.0.1 at 2023-10-23 18:59:50 +0530
+Processing by AttendersController#dashboard as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering attenders/dashboard.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_navbar.html.erb:15
+  Rendered home/_navbar.html.erb (Duration: 9.2ms | Allocations: 2719)
+  Rendered attenders/dashboard.html.erb within layouts/application (Duration: 29.2ms | Allocations: 6281)
+  Rendered layout layouts/application.html.erb (Duration: 35.9ms | Allocations: 8575)
+Completed 200 OK in 47ms (Views: 45.5ms | ActiveRecord: 0.4ms | Allocations: 9396)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-23 19:00:29 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_navbar.html.erb:15
+  Rendered home/_navbar.html.erb (Duration: 130.3ms | Allocations: 23308)
+  Rendered home/index.html.erb within layouts/application (Duration: 244.6ms | Allocations: 72248)
+  Rendered layout layouts/application.html.erb (Duration: 249.7ms | Allocations: 74900)
+Completed 200 OK in 264ms (Views: 249.1ms | ActiveRecord: 4.9ms | Allocations: 81553)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2023-10-23 19:00:33 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 257)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 13.6ms | Allocations: 4688)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 7974)
+Completed 200 OK in 28ms (Views: 22.8ms | ActiveRecord: 0.3ms | Allocations: 10783)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
