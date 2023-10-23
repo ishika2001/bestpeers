@@ -6,8 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= javascript_importmap_tags %>
-    <%= stylesheet_link_tag "application"%>
-    <%= stylesheet_link_tag "/assets/stylesheets/home.css" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %> 
+    <%= stylesheet_link_tag "style", media: 'all'%>
   </head>
     <body>
     <%= render "/home/navbar" %>

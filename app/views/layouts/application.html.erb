@@ -8,11 +8,12 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %> 
     <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "style", media: 'all'%>
   </head>
 
     <body>
     <%= yield %>
      <span class="notice"><%= notice %></span> 
-        <span class="alert"><%= alert %></span>
+        <button class="alert"><%= alert%></button>
     </body>
 </html>
