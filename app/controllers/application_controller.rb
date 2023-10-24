@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if user_signed_in?
-      if current_user.role == nil
+      if current_user.role == "attender"
         attender_dashboard_path
       else 
         organizer_dashboard_path
@@ -12,17 +12,8 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, role: [:organizer, :attender]])
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:role, :name, :email, :password, :password_confirmation) }
   end
-
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.permit(:sign_up) do |user_params|
-  #     user_params.permit({ roles: [:organizer, :attender] }, :name,:email, :password, :password_confirmation)
-  #   end
-  # end
-  # def after_sign_out_path_for(resource)
-  #   home_index_path
-  # end
 
   
 end
