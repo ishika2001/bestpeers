@@ -6,13 +6,13 @@ class ApplicationController < ActionController::Base
       if current_user.role == "attender"
         attender_dashboard_path
       else 
-        organizer_dashboard_path
+        organizers_path
       end
     end
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:role, :name, :email, :password, :password_confirmation) }
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(  :email, :name,:password, :password_confirmation,:role) }
   end
 
   

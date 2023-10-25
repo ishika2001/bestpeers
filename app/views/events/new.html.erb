@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-4 card mt-5 align-items-center box-shadow: 0px 0px;">
+      <%= form_with(model: @organizer,url: events_path) do |form| %>
+        <h3 class="mt-3 d-flex justify-content-center">Create Event</h3>
+        <%= form.hidden_field :organizer_id, value: @organizer_id%>
+        <p>
+          <%= form.label :title %><br>
+          <%= form.text_field :title %>
+        </p>
+        <p>
+          <%= form.label :date %><br>
+          <%= form.text_field :date %>
+        </p>
+        <p>
+          <%= form.label :time %><br>
+          <%= form.text_field :time %>
+        </p>
+        <p>
+          <%= form.label :venue %><br>
+          <%= form.text_field :venue %>
+        </p>
+        <p>
+          <%= form.label :description %><br>
+          <%= form.text_field :description %>
+        </p>
+        <p >
+          <%= form.submit %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

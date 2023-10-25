@@ -1,0 +1,2 @@
+class Attender < User 
+end

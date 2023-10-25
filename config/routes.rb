@@ -6,11 +6,16 @@ Rails.application.routes.draw do
    end
 
    
-  # Defines the root path route ("/")
   root "home#index"
   get 'home', to: "home#index"
-  get 'organizer_dashboard', to: "organizers#dashboard"
+  # get 'organizer_dashboard', to: "organizers#dashboard"
+  resources :events
+  resources :organizers
   get 'attender_dashboard', to: "attenders#dashboard"
   
-  # resources :home
 end
+
+
+
+ 
+
