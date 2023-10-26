@@ -9,11 +9,11 @@
 # Organizer.destroy_all
 
 5.times do |i|
-  Event.create(title: "title#{i+5}", date: Date.today, time: Time.now, venue:"venue#{i+5}", 
-  description:"desc#{i+5}", organizer_id:"#{i+10}")
+  Event.create(title: "title#{i+10}", date: Date.today, time: Time.now, venue:"venue#{i+10}", 
+  description:"desc#{i+10}")
 end
 
-# 5.times do |i|
+# 10.times do |i|
 #   User.create(email: "a#{i+5}@gmail.com", name: "name#{i+5}", password:"zzzzzz", password_confirmation:
 #   "zzzzzz", role:"organizer")
 # end

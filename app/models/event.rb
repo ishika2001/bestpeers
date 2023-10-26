@@ -1,3 +1,4 @@
 class Event < ApplicationRecord
-  belongs_to :organizer
+  belongs_to :user
+  has_many :attenders
 end

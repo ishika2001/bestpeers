@@ -12,6 +12,7 @@ module EventManagement
     config.load_defaults 7.0
     # Precompile additional assets.
     config.assets.precompile += %w( style.css )
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     # Configuration for the application, engines, and railties goes here.
     #
