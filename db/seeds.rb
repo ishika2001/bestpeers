@@ -7,13 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first)
 # Event.destroy_all
 # Organizer.destroy_all
+# organizer = User.first
+# event = organizer.events.first
 
-5.times do |i|
-  Event.create(title: "title#{i+10}", date: Date.today, time: Time.now, venue:"venue#{i+10}", 
-  description:"desc#{i+10}")
-end
-
-# 10.times do |i|
-#   User.create(email: "a#{i+5}@gmail.com", name: "name#{i+5}", password:"zzzzzz", password_confirmation:
-#   "zzzzzz", role:"organizer")
+# 5.times do |i|
+#   Event.create(title: "title#{i+10}", date: Date.today, time: Time.now, venue:"venue#{i+10}", 
+#   description:"desc#{i+10}")
 # end
+

@@ -8,14 +8,12 @@
   <div style="color: red"><%= render "devise/shared/error_messages", resource: resource %></div>
 
 
- <%
-=begin%>
+
  <div>
 <%= f.label :role%>
 <%= f.select :role, User.roles.keys.map{|role| [role.humanize, role]}%>
 </div>  
-<%
-=end%>
+
 
   <div class="field mt-1">
     <%= f.label :email %><br />

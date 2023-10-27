@@ -37,3 +37,23 @@ tr:nth-child(even) {
   --bs-btn-padding-x: 0.25rem !important;
   --bs-btn-padding-y: 0.250rem !important;
 }
+.sorry{
+  color: red !important;
+  margin-left: 10rem !important;
+}
+.last{
+  display: flex;
+  justify-content: end !important;
+}
+#one {  
+  border-radius: 20px !important;  
+  background: lightgreen;  
+  padding: 10px;  
+  margin: 10px;  
+  width: 200px;  
+  float: left;  
+  height: 100px;  
+  }  
+  .book{
+    margin-left: 35px !important;
+  }

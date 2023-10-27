@@ -15,28 +15,26 @@
           <div class="col-md-2 sidebar">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                <li >
-          <h5>Attenders of the <%= @event.title%></h5>
+          <h5>Attenders of the <%= @event.title%> event</h5>
           </li>   
           
               
       </ul>
           </div>
           <div class="col-md-10 table-content">
-            <div class="d-flex justify-content-end mt-3"><%= link_to "Create New Event", new_event_path,  class: "btn btn-secondary"%></div>
-  <table class="mt-4">
+    <table class="mt-4">
   <tr>
     <th>Name</th>
-    <th>Contact</th>
-    <th>Age</th>
   </tr>
-
+<% if @event.attenders.count==0%>
+<h5 class="sorry">No Tickets have been purchased yet!</h5>
+<%else%>
   <% @event.attenders.each do |attender|%>
    <tr>
     <td><%= attender.name%></td>
- <td><%= attender.contact%></td>
-    <td><%= attender.age%></td> 
   </tr>
   <%end%>
+    <%end%>
 </table>
           </div>
         </div>

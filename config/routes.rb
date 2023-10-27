@@ -15,12 +15,18 @@ Rails.application.routes.draw do
   get 'home', to: "home#index"
   resource "home"
   resources :events
+  resources :tickets
 
   get "/show", to: "events#show"
   get "/edit", to: "events#edit"
   get "/destroy", to: "events#destroy"
 
+  get "/show", to: "tickets#show"
+  get "/edit", to: "tickets#edit"
+  get "/destroy", to: "tickets#destroy"
+
   get "/attenders/show", to: "attenders#show"
+  get "/tickets/show", to: "tickets#show"
   
   # resources :users
   # resources :organizers
