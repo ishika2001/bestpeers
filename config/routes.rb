@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   get "/attenders/show", to: "attenders#show"
   get "/tickets/show", to: "tickets#show"
+  get "/book", to: "tickets#book"
   
   # resources :users
   # resources :organizers

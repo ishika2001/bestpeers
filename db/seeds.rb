@@ -15,3 +15,64 @@
 #   description:"desc#{i+10}")
 # end
 
+
+@data=[
+  {
+    title: "Freshers Party",
+    date: Date.today,
+    time: Time.now,
+    venue: "Indore",
+    description: "a college event for interaction",
+    image:'/assets/event_images/img2.avif',
+    organizer_id: 15
+  },
+  {
+    title: "Wedding",
+    date: Date.today,
+    time: Time.now,
+    venue: "Mumbai",
+    description: "Punjabi wedding",
+    image:'/assets/event_images/img4.avif',
+    organizer_id: 15
+  },
+  {
+    title: "Engagement ceremony",
+    date: Date.today,
+    time: Time.now,
+    venue: "Nagpur",
+    description: "Ceremony before wedding",
+    image:'/assets/event_images/img.webp',
+    organizer_id: 15
+  },
+  {
+    title: "Tech-Envisage",
+    date: Date.today,
+    time: Time.now,
+    venue: "Banglore",
+    description: "Technical event",
+    image:'/assets/event_images/img.webp',
+    organizer_id: 15
+  },
+  {
+    title: "Hackathon",
+    date: Date.today,
+    time: Time.now,
+    venue: "Indore",
+    description: "Tech-competition",
+    image:'/assets/event_images/img.webp',
+    organizer_id: 15
+  },
+ 
+]
+@data.each do |data_item|
+  Event.create(data_item)
+ end
+# @course_ids=Course.pluck(:id)
+# @pdf_data.each do |data_item|
+#   Course.all.each do |course|
+#     course.pdfs.create(data_item)
+#   end
+# end
+
+
+

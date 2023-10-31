@@ -21,8 +21,8 @@ table {
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
-  padding-left: 6px !important;
-  padding-right: 6px !important;
+  padding-left: 3px !important;
+  padding-right: 3px !important;
   padding-top: 2px !important;
   padding-bottom: 2px !important;
 }
@@ -54,6 +54,21 @@ tr:nth-child(even) {
   float: left;  
   height: 100px;  
   }  
+  #two {  
+    border-radius: 20px !important;  
+    background: rgb(248, 117, 9);  
+    padding: 10px;  
+    margin: 10px;  
+    width: 200px;  
+    float: left;  
+    height: 100px;  
+    } 
   .book{
     margin-left: 35px !important;
+  }
+.common{
+  margin-right: 2rem !important;
+}
+  .sidebar{
+    display: flex !important;
   }

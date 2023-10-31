@@ -4,6 +4,7 @@ class TicketsController < ApplicationController
   end
 
   def show
+    # @ticket_details = Ticket.find(params[:id])
     @event = Event.find(params[:event_id])
     @ticket = @event.tickets
   end
@@ -12,11 +13,44 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
   end
 
+  # def create
+  #   @user = current_user
+  #   @ticket = @user.tickets.create(ticket_params)
+  #   redirect_to @ticket
+  # end
+
+
+
   def create
     @user = current_user
+    if @user.role == "organizer"
+      @ticket = @user.tickets.create(ticket_params)
+      redirect_to @ticket
+    else
+      flash[:error] = "You must have the organizer role to create tickets."
+      redirect_to root_path
+    end
+  end
 
-    @ticket = @user.tickets.create(ticket_params)
-    redirect_to @ticket
+  def book
+    @user = current_user
+    puts "<<<<<<<<<<<<<<<<<#{@user}"
+
+    @ticket = Ticket.find_by(id: params[:id])
+    puts @ticket.status=="not-booked"
+    if @ticket
+        if @ticket.status=="not-booked"
+          @user.tickets<<@ticket
+          @ticket.status = "booked"
+          if @ticket.save
+            flash[:success] = "Ticket booked count updated."
+          else
+            flash[:error] = "Failed to update Ticket booked count."
+          end
+        end
+    else
+      flash[:error] = "Ticket record not found."
+    end
   end
 
   def edit
@@ -25,7 +59,6 @@ class TicketsController < ApplicationController
 
   def update
     @ticket = Ticket.find(params[:id])
-
     if @ticket.update(ticket_params)
       redirect_to @ticket
     else

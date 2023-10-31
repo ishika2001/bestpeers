@@ -12,17 +12,11 @@
     <body>        
       <div class="container">
         <div class="row">
-          <div class="col-md-2 sidebar">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li >
-                    <h5>Organizers Dashboard</h5>
-                    </li>   
-                    <li class="">
-                      <a href="/users/sign_out">Home</a>
-                    </li>                        
-               </ul>
+          <div class="col-md-0 sidebar">
+               <div><a class="nav-item text-secondary text-decoration-none common">Organizers dashboard</a></div>
+               <div><a class="nav-item text-secondary text-decoration-none" href="/users/sign_out">Home</a></div>
           </div>
-          <div class="col-md-10 table-content">
+          <div class="col-md-12 table-content">
             <div class="d-flex justify-content-end mt-3"><%= link_to "Create New Event", new_event_path,  class: "btn btn-secondary"%></div>
   <table class="mt-4">
   <tr>
@@ -32,15 +26,18 @@
     <th>Venue</th>
     <th>Description</th>
     <th>actions</th>
-    <th>Attenders</th>
+    <%
+=begin%>
+ <th>Attenders</th> 
+<%
+=end%>
     <th>Tickets</th>
   </tr>
-
   <% current_user.events.each do |event|%>
    <tr>
     <td><%= event.title%></td>
     <td><%= event.date%></td>
-    <td><%= event.time%></td>
+    <td><%= event.time %></td>
     <td><%= event.venue%></td>
     <td><%= event.description%></td>
     <td>
@@ -48,19 +45,16 @@
       <%= link_to "Edit", "/edit?id=#{event.id}",  class: "btn btn-secondary"%>
       <%= link_to "Delete", "/destroy?id=#{event.id}",  class: "btn btn-danger"%>
     </td>
-    <td> <%= link_to "Attenders", "/attenders/show?id=#{event.id}",  class: "btn btn-secondary"%></td>
+    <%
+=begin%>
+ <td> <%= link_to "Attenders", "/attenders/show?id=#{event.id}",  class: "btn btn-secondary"%></td> 
+<%
+=end%>
     <td>
       <%= link_to "Tickets", "tickets/show?event_id=#{event.id}",  class: "btn btn-warning"%>
     </td>
   </tr>
   <%end%>
-
-
-
-
-
-
-  
 </table>
           </div>
         </div>
