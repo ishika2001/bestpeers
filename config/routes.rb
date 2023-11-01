@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resource "home"
   resources :events
   resources :tickets
+  resources :organizers
+  resources :attenders
 
   get "/show", to: "events#show"
   get "/edit", to: "events#edit"
@@ -28,11 +30,8 @@ Rails.application.routes.draw do
   get "/attenders/show", to: "attenders#show"
   get "/tickets/show", to: "tickets#show"
   get "/book", to: "tickets#book"
-  
-  # resources :users
-  # resources :organizers
-  # get 'attender_dashboard', to: "attenders#dashboard"
-  # get 'organizer_dashboard', to: "organizers#index"
+  get "/organizers/index", to: "organizers#index"
+  get "/attenders/index", to: "attenders#index"
   
 end
 

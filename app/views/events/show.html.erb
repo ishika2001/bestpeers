@@ -11,16 +11,24 @@
   </head>
     <body>
 <div class="container mt-4">
-  <div class="row">
-  <h1><%= @event.title.capitalize %></h1>
-
-<p><b>Event Date: </b><%= @event.date %></p>
-<p><b>Event Time: </b><%= @event.time %></p>
-<p><b>Event Venue: </b><%= @event.venue %></p>
-<p><b>Event Description: </b><%= @event.description %></p>
-<div>
+  <div class="row d-flex">
+  <div class="col justify-content-end">
+   <h1><%= @event.title.capitalize %></h1>
+      <p><b>Event Date: </b><%= @event.date %></p>
+      <p><b>Event Time: </b><%= @event.time %></p>
+      <p><b>Event Venue: </b><%= @event.venue %></p>
+      <p><b>Event Description: </b><%= @event.description %></p>
+ <div>
   <%= link_to "All Events", "/users/sign_in",  class: "btn btn-secondary"%>
   </div>
+  <div class="card m-2" style="width: 18rem;">
+      <img src="/assets/event_images/img2.avif" class="card-img-top" alt="...">
+    </div>
+  </div>
+  <div class="col justify-content-start">
+   
+  </div>
+     
     </div>
   </div>
 </div>        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

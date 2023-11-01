@@ -14,7 +14,8 @@
         <div class="row">
           <div class="col sidebar">
               <div><a class="nav-item text-secondary text-decoration-none common">Attenders dashboard</a></div>
-               <div><a class="nav-item text-secondary text-decoration-none" href="/users/sign_out">Home</a></div>
+              <div><a class="nav-item text-secondary text-decoration-none common" href="/users/sign_out">Home</a></div>
+              <%= link_to "My-Tickets", "attenders?id=#{current_user.id}",  class: "nav-item text-secondary text-decoration-none"%>
           </div>
           <div class="col-md-12 table-content">
               <table class="mt-4">

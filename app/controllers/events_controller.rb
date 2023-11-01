@@ -13,8 +13,8 @@ class EventsController < ApplicationController
 
   def create
     @user = current_user
-
     @event = @user.events.create(event_params)
+    CrudNotificatonMailer.create_notification(@event).deliver_now
     redirect_to @event
   end
 

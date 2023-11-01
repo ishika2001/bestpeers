@@ -1,0 +1,26 @@
+         
+
+ <div class="container">
+  <div class="row">
+    <div class="col">
+        <div><a class="nav-item text-secondary text-decoration-none common" href="/">Home</a></div>
+    </div>
+  </div>
+   <div class="row">
+    <div class="col">
+       <%if current_user.tickets.count==0%>
+              <h5 class="sorry">No Tickets available!!!</h5>
+              <%else%>
+              <h5 class="sorry">You have purchased <%= current_user.tickets.count%> tickets!</h5>
+              <% current_user.tickets.each do|ticket|%>
+              <div id = "two">  
+              <b>Ticket Name: </b><%= ticket.name %>
+              <b>Ticket Price: </b><%= ticket.price %>
+              <div>
+              </div>
+              </div> 
+              <%end%>
+          <%end%>
+    </div>
+  </div>
+</div>

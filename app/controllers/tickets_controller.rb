@@ -4,21 +4,22 @@ class TicketsController < ApplicationController
   end
 
   def show
-    # @ticket_details = Ticket.find(params[:id])
     @event = Event.find(params[:event_id])
     @ticket = @event.tickets
+    @booked = 0
+    @unbooked = 0
+    @ticket.each do|t|
+      if t.status=="not-booked"
+        @unbooked+=1
+      else
+        @booked+=1
+      end
+    end
   end
 
   def new
     @ticket = Ticket.new
   end
-
-  # def create
-  #   @user = current_user
-  #   @ticket = @user.tickets.create(ticket_params)
-  #   redirect_to @ticket
-  # end
-
 
 
   def create
@@ -35,7 +36,6 @@ class TicketsController < ApplicationController
   def book
     @user = current_user
     puts "<<<<<<<<<<<<<<<<<#{@user}"
-
     @ticket = Ticket.find_by(id: params[:id])
     puts @ticket.status=="not-booked"
     if @ticket
