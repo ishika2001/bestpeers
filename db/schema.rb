@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_30_053649) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_01_124204) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "event_id", null: false
+    t.bigint "attender_id", null: false
+    t.index ["attender_id"], name: "index_comments_on_attender_id"
+    t.index ["event_id"], name: "index_comments_on_event_id"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "title"
@@ -41,7 +51,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_30_053649) do
     t.datetime "updated_at", null: false
     t.bigint "event_id", null: false
     t.string "status", default: "not-booked"
+    t.bigint "attender_id"
+    t.bigint "user_id"
+    t.index ["attender_id"], name: "index_tickets_on_attender_id"
     t.index ["event_id"], name: "index_tickets_on_event_id"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,8 +72,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_30_053649) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "events"
+  add_foreign_key "comments", "users", column: "attender_id"
   add_foreign_key "events", "users", column: "organizer_id"
   add_foreign_key "events_users", "events"
   add_foreign_key "events_users", "users"
   add_foreign_key "tickets", "events"
+  add_foreign_key "tickets", "users"
+  add_foreign_key "tickets", "users", column: "attender_id"
 end

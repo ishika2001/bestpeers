@@ -1,0 +1,376 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/developer/Desktop/Project/myguide/app/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          27,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          24,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/helpers/attenders_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/helpers/comments_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/helpers/events_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/helpers/home_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/helpers/organizers_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/helpers/tickets_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/helpers/users_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/controllers/comments_controller.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/controllers/events_controller.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          2,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/controllers/home_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          2,
+          2,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/controllers/tickets_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          2,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/controllers/users_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/models/comment.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/models/event.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/models/ticket.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/mailers/crud_notificaton_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          24,
+          24,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/developer/Desktop/Project/myguide/app/mailers/application_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1699018375
+  }
+}

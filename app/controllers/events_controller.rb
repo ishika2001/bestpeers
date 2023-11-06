@@ -1,9 +1,8 @@
 class EventsController < ApplicationController
-  def index 
-    @events = Event.all
-  end
+ 
 
   def show
+    @events = Event.all
     @event = Event.find(params[:id])
   end
 
@@ -24,7 +23,6 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-
     if @event.update(event_params)
       redirect_to @event
     else

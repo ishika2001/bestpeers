@@ -32,7 +32,11 @@
         <%else%>
         <%if current_user.role=="organizer"%>
         <div class="col d-flex justify-content-end ">
-          <div class="d-flex justify-content-end mt-3"><%= link_to "Create Ticket", new_ticket_path,  class: "btn btn-secondary"%></div>
+          <%
+=begin%>
+ <div class="d-flex justify-content-end mt-3"><%= link_to "Create Ticket", new_ticket_path,  class: "btn btn-secondary"%></div> 
+<%
+=end%>
         </div> 
         <%end%>
         <%end%> 
@@ -47,7 +51,7 @@
               <%else%>
               <div id = "two">  
               <%end%>
-              <header class="core"><%= @event.title%></header>
+              <header class="core text-secondary"><b><%= @event.title.capitalize%></b></header>
               <b>Ticket Name: </b><%= ticket.name %><br>
               <b>Ticket Price: </b><%= ticket.price %>
               <% if ticket.status=="not-booked"%>
@@ -58,23 +62,24 @@
                <button type="button" class="btn btn-sm btn-secondary cor">
                   Booked
                 </button>   
-               <i class="fa-regular fa-circle-down"></i>    
+                 <b><%= link_to "Download", download_pdf_path(ticket.id),  class: "down nav-item text-secondary text-decoration-none"%></b>
               <%end%>
               <div>
               </div>
               </div> 
               <%end%>
-              <%end%>
-          </div>
-        </div>
-      </div>   
-
-       <div class="row mt-4">
+               <div class="row mt-4">
               <%if @unbooked==0%>
               <h3 class="sorry">Sorry! No anymore tickets remaining!! for the event</h3>
               <h5 class="sorry">will notify, In case of increase in the no. of tickets</h5>
               <%end%>
           </div>
+              <%end%>
+          </div>
+        </div>
+      </div>   
+
+        
         </div>
       </div>   
 

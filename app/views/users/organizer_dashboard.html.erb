@@ -15,17 +15,6 @@
           <div class="col-md-0 sidebar">
                <div><a class="nav-item text-secondary text-decoration-none common">Organizers dashboard</a></div>
                <div><a class="nav-item text-secondary text-decoration-none common" href="/users/sign_out">Home</a></div>
-               <%
-=begin%>
- <div><a class="nav-item text-secondary text-decoration-none" href="/organizers/index?id=#{current_user.id}">My-Tickets</a></div>
-               "tickets/show?event_id=#{event.id}" 
-<%
-=end%>
-               <%
-=begin%>
- <%= link_to "My- Tickets", "organizers?id=#{current_user.id}",  class: "nav-item text-secondary text-decoration-none"%> 
-<%
-=end%>
           </div>
           <div class="col-md-12 table-content">
             <div class="d-flex justify-content-end mt-3"><%= link_to "Create New Event", new_event_path,  class: "btn btn-secondary"%></div>

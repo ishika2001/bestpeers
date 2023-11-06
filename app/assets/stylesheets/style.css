@@ -52,7 +52,7 @@ tr:nth-child(even) {
   margin: 10px;  
   width: 200px;  
   float: left;  
-  height: 120px;  
+  height: 140px;  
   }  
   #two {  
     border-radius: 20px !important;  
@@ -61,7 +61,7 @@ tr:nth-child(even) {
     margin: 10px;  
     width: 200px;  
     float: left;  
-    height: 120px;  
+    height: 140px;  
     } 
   .book{
     margin-left: 35px !important;
@@ -81,4 +81,11 @@ tr:nth-child(even) {
   }
   .cor{
     margin-left: 3rem !important;
+  }
+  .down{
+    margin-left: 2.5rem !important;
+    color: white !important;
+  }
+  .comment{
+    background: antiquewhite !important;
   }

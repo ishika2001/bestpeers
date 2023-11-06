@@ -1,9 +1,7 @@
 class TicketsController < ApplicationController
-  def index 
-    @tickets = Ticket.all
-  end
-
+  
   def show
+    @tickets = Ticket.all
     @event = Event.find(params[:event_id])
     @ticket = @event.tickets
     @booked = 0
@@ -17,12 +15,11 @@ class TicketsController < ApplicationController
     end
   end
 
-  def new
-    @ticket = Ticket.new
-  end
+  
 
 
   def create
+    @ticket = Ticket.new 
     @user = current_user
     if @user.role == "organizer"
       @ticket = @user.tickets.create(ticket_params)
@@ -35,44 +32,46 @@ class TicketsController < ApplicationController
 
   def book
     @user = current_user
-    puts "<<<<<<<<<<<<<<<<<#{@user}"
     @ticket = Ticket.find_by(id: params[:id])
-    puts @ticket.status=="not-booked"
     if @ticket
         if @ticket.status=="not-booked"
           @user.tickets<<@ticket
           @ticket.status = "booked"
-          if @ticket.save
-            flash[:success] = "Ticket booked count updated."
-          else
-            flash[:error] = "Failed to update Ticket booked count."
-          end
+          # if @ticket.save
+          #   flash[:success] = "Ticket booked count updated."
+          # else
+          #   flash[:error] = "Failed to update Ticket booked count."
+          # end
         end
     else
       flash[:error] = "Ticket record not found."
     end
   end
 
-  def edit
-    @ticket = Ticket.find(params[:id])
+  
+
+  def download_pdf
+    ticket_id = params[:id]
+    @ticket_to_be_download= Ticket.find_by(id: ticket_id)
+    send_data generate_pdf(@ticket_to_be_download),
+    filename: "ticket.pdf",
+    type: "application/pdf"
   end
 
-  def update
-    @ticket = Ticket.find(params[:id])
-    if @ticket.update(ticket_params)
-      redirect_to @ticket
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @ticket = Ticket.find(params[:id])
-    @ticket.destroy
-    redirect_to root_path, status: :see_other
-  end
 
   private
+  
+    def generate_pdf(ticket)
+      if ticket
+      Prawn::Document.new do
+        text "Congratulations You got the ticket!", align: :center
+        text "Event-Name: #{ticket.event.title}"
+        text "Ticket-Name: #{ticket.name}"
+        text "Price: #{ticket.price}"
+      end.render
+    end
+    end
+
     def ticket_params
       params.require(:ticket).permit(:name, :price)
     end
